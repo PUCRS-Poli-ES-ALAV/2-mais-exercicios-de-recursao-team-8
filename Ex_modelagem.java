@@ -55,7 +55,8 @@ public class Ex_modelagem {
             return 0;
     }
 
-    /*Assinatura: int fibon(int n)
+    /*
+     * Assinatura: int fibon(int n)
      * 
      * retorna a sequencia de fibonnaci até N
      * 
@@ -119,6 +120,8 @@ public class Ex_modelagem {
      * 
      * se n == 1
      * return 1
+     * 
+     * se não: retorna dividindo por 2 e somando o resto da divisão
      */
     public static String convBase2(int n) {
         if (n == 0)
