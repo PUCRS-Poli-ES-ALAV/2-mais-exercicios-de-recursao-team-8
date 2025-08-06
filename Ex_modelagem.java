@@ -7,11 +7,14 @@ public class Ex_modelagem {
     }
     /*
      * Assinatura: int fatorial(int n)
-     * retorna o fatorial de um número inteiro 
+     * 
+     * retorna o fatorial de um número N inteiro
+     * 
      * 
      * Casos base:
      * f(1) = 1
-     * f(2) = 2
+     * f(2) = 2 * 1 = 2
+     * f(3) = 3 * 2 * 1 = 6
      * 
     */
     public static int fatorial(int n) throws IllegalArgumentException{
@@ -23,6 +26,16 @@ public class Ex_modelagem {
         return n * fatorial(n-1);
     }
 
+    /*
+     * Assinatura: int somatorio (int n)
+     * 
+     * retorna o somatorio de um número N até 0
+     * 
+     * 
+     * 
+     * Casos base:
+     * 
+     */
     public static int somatorio(int n){
         if(n > 0)
         return somatorio(n-1);
@@ -43,7 +56,7 @@ public class Ex_modelagem {
 
     public static int double_somatorio(int k, int j){
         if(k<j)
-        return k + double_somatorio(k+1, k);
+        return k + double_somatorio(k+1, j);
         if(k>j)
         return double_somatorio(j, k);
         else
