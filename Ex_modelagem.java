@@ -55,7 +55,18 @@ public class Ex_modelagem {
             return 0;
     }
 
-    /*
+    /*Assinatura: int fibon(int n)
+     * 
+     * retorna a sequencia de fibonnaci até N
+     * 
+     * se menor que 0:
+     * retorna 0
+     * 
+     * se igual a 1:
+     * retorna 1
+     * 
+     * se não:
+     * continua a recursão com fibon(n-1) + fibon(n-2)
      * 
      * Casos base:
      * fibon(1) = 1
