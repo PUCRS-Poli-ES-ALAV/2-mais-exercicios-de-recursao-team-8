@@ -36,10 +36,15 @@ public class Ex_modelagem {
      * 
      * retorna o somatorio de um número N até 0
      * 
+     * se número for maior que 0:
+     * diminui e repete até 0;
      * 
+     * se menor que 0:
+     * soma 1 e repete até 0;
      * 
      * Casos base:
-     * 
+     * somatorio(5) = 5-1 -> 4-1 -> 3-1 -> 2-1 -> 1-1 -> 0
+     * somatorio(-5) = 5-1 -> 4-1 -> 3-1 -> 2-1 -> 1-1 -> 0
      */
     public static int somatorio(int n) {
         if (n > 0)
@@ -50,6 +55,15 @@ public class Ex_modelagem {
             return 0;
     }
 
+    /*
+     * 
+     * Casos base:
+     * fibon(1) = 1
+     * fibon(2) = 1
+     * fibon(3) = fibon(2) + fibon(1) = 1 + 1 = 2
+     * fibon(4) = fibon(3) + fibon(2) = 2 + 1 = 3
+     * fibon(5) = fibon(4) + fibon(3) = 3 + 2 = 5
+     */
     public static int fibon(int n) {
         if (n <= 0)
             return 0;
