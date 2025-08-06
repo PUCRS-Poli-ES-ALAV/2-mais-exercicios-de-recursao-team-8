@@ -31,7 +31,11 @@ public class Ex_modelagem {
      * 
      * retorna o somatorio de um número N até 0
      * 
+     * se número for maior que 0:
+     * diminuir até 0
      * 
+     * se menor que 0:
+     * somar até 0
      * 
      * Casos base:
      * 
@@ -53,6 +57,7 @@ public class Ex_modelagem {
         else
         return fibon(n-1) + fibon(n-2);
     }
+
 
     public static int double_somatorio(int k, int j){
         if(k<j)
