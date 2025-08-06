@@ -4,12 +4,21 @@ public class Ex_modelagem {
         System.out.println(somatorio(0));
         System.out.println(fibon(6));
         System.out.println(double_somatorio(1,6));
-    }   
-    public static int fatorial(int n){
+    }
+    /*
+     * Assinatura: int fatorial(int n)
+     * retorna o fatorial de um número inteiro 
+     * 
+     * Casos base:
+     * f(1) = 1
+     * f(2) = 2
+     * 
+    */
+    public static int fatorial(int n) throws IllegalArgumentException{
         if(n == 0)
         return 1;
         else if(n < 0)
-        return -9999;
+        throw new IllegalArgumentException();
         else
         return n * fatorial(n-1);
     }
