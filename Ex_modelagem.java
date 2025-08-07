@@ -21,6 +21,7 @@ public class Ex_modelagem {
         System.out.println(somatorioArray(lista));
         System.out.println(findBiggest(lista));
         System.out.println(findSubStr("vamos", "amo"));
+        System.out.println(nroDigit(-4444));
     }
 
     /*
@@ -248,5 +249,27 @@ public class Ex_modelagem {
         return true;
 
         return findSubStr(str.substring(1), match);
+    }
+
+    /*
+     * Assinatura: int nroDigit(int n)
+     * 
+     * Casos base:
+     * se n<10 e n>=0
+     * retorna 1
+     * 
+     * se n>-10 e n<0
+     * retorna 1
+     * 
+     * se não
+     * retorna nroDigit(n/10)
+     */
+    public static int nroDigit(int n){
+        if(n<10 && n >= 0)
+        return 1;
+        else if(n>-10 && n<0)
+        return 1;
+        else
+        return nroDigit(n/10) + 1;
     }
 }
