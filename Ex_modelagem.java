@@ -16,8 +16,10 @@ public class Ex_modelagem {
         lista.add(98);
         lista.add(1);
         lista.add(900);
+        lista.add(2);
+        
+        System.out.println(somatorioArray(lista));
         System.out.println(findBiggest(lista));
-    
     }
 
     /*
@@ -142,11 +144,42 @@ public class Ex_modelagem {
     }
 
     /*
+     * Assinatura: int somatorioArray(ArrayList<Integer> lista)
+     * 
+     * Casos base:
+     * se a lista está vazia
+     * retorna 0
+     * 
+     * se a lista tem 1 elemento
+     * retorna o primeiro elemento
+     * 
+     * se não
+     * cria uma cópia da lista
+     * soma o ultimo elemento com o primeiro
+     * remove o ultimo elemento da lista
+     * retorna somatorioArray(cópia da lista)
+     * 
+     */
+    public static int somatorioArray(ArrayList<Integer> lista) {
+        if(lista.isEmpty())
+        return 0;
+
+        if(lista.size() == 1)
+        return lista.get(0);
+
+        ArrayList<Integer> lista2 = new ArrayList<Integer>();
+        lista2.addAll(lista);
+        lista2.set(0, lista2.get(0) + lista2.get(lista2.size()-1));
+        lista2.remove(lista2.size()-1);
+        return somatorioArray(lista2);
+    }
+
+    /*
      * Assinatura: int findBiggest(ArrayList<Integer> lista)
      * 
      * Casos base:
      * se está vazia
-     * retorna 0;
+     * retorna 0
      * 
      * se tamanho == 1
      * retorna primeiro elemento
