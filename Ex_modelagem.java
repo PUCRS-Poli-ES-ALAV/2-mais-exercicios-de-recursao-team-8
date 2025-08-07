@@ -8,6 +8,16 @@ public class Ex_modelagem {
         System.out.println(double_somatorio(1, 6));
         System.out.println(pal("pooiioop"));
         System.out.println(convBase2(8));
+
+        ArrayList<Integer> lista = new ArrayList<Integer>();
+        lista.add(1444);
+        lista.add(118);
+        lista.add(0);
+        lista.add(98);
+        lista.add(1);
+        lista.add(900);
+        System.out.println(findBiggest(lista));
+    
     }
 
     /*
@@ -129,7 +139,47 @@ public class Ex_modelagem {
 
     }
 
-    public static int somatorioArray(ArrayList<Integer> lista, int i) {
+    /*
+     * Assinatura: int findBiggest(ArrayList<Integer> lista)
+     * 
+     * Casos base:
+     * se está vazia
+     * retorna 0;
+     * 
+     * se tamanho == 1
+     * retorna primeiro elemento
+     * 
+     * se 1º elemento > ultimo
+     * cria uma cópia da lista e sobrescreve o ultimo elemento com o valor do primeiro
+     * remove o primeiro elemento da cópia
+     * retorna findBiggest(cópia da lista)
+     * 
+     * 
+     * se 1º elemento <= ultimo
+     * cria uma cópia da lista e remove o primeiro elemento
+     * retorna findBiggest(cópia da lista)
+     * 
+     * retorna o maior elemento de uma lista
+     */
+    public static int findBiggest(ArrayList<Integer> lista) {
+        if(lista.isEmpty())
         return 0;
+
+        if(lista.size() == 1)
+        return lista.get(0);
+
+        if(lista.get(0) > lista.get(lista.size()-1)){
+            ArrayList<Integer> lista2 = new ArrayList<Integer>();
+            lista2.addAll(lista);
+            lista2.set(lista.size()-1,lista.get(0));
+            lista2.remove(0);
+            return findBiggest(lista2);
+        }
+        else{// se primeiro elemento <= ultimo
+            ArrayList<Integer> lista2 = new ArrayList<Integer>();
+            lista2.addAll(lista);
+            lista2.remove(0);
+            return findBiggest(lista2);
+        }
     }
 }
