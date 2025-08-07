@@ -20,6 +20,7 @@ public class Ex_modelagem {
         
         System.out.println(somatorioArray(lista));
         System.out.println(findBiggest(lista));
+        System.out.println(findSubStr("vamos", "amo"));
     }
 
     /*
@@ -215,5 +216,18 @@ public class Ex_modelagem {
             lista2.remove(0);
             return findBiggest(lista2);
         }
+    }
+
+    public static boolean findSubStr(String str, String match){
+        if(str.isEmpty() || str.length() < match.length())
+        return false;
+
+        if(match.isEmpty())
+        return false;
+
+        if(str.substring(0, match.length()).equals(match))
+        return true;
+
+        return findSubStr(str.substring(1), match);
     }
 }
