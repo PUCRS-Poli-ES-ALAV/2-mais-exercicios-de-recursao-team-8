@@ -65,8 +65,7 @@ public class Ex_modelagem {
             return 0;
     }
 
-    /*
-     * Assinatura: int fibon(int n)
+    /*Assinatura: int fibon(int n)
      * 
      * retorna a sequencia de fibonnaci até N
      * 
@@ -162,7 +161,6 @@ public class Ex_modelagem {
      * cria uma cópia da lista e remove o primeiro elemento
      * retorna findBiggest(cópia da lista)
      * 
-     * retorna o maior elemento de uma lista
      */
     public static int findBiggest(ArrayList<Integer> lista) {
         if(lista.isEmpty())
