@@ -218,6 +218,25 @@ public class Ex_modelagem {
         }
     }
 
+    /*
+     * Assinatura: boolean findSubStr(String str, String match)
+     * 
+     * Casos base:
+     * se str estiver vazia
+     * retorna false
+     * 
+     * se str for menor que match
+     * retorna false
+     * 
+     * se match estiver vazia
+     * retorna false
+     * 
+     * se os caracteres de 0 até match.size() de str for igual a match
+     * retorna true
+     * 
+     * se não
+     * retorna findSubStr(str sem o primeiro caractere, match)
+     */
     public static boolean findSubStr(String str, String match){
         if(str.isEmpty() || str.length() < match.length())
         return false;
