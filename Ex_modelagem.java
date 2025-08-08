@@ -23,10 +23,11 @@ public class Ex_modelagem {
         System.out.println(findSubStr("vamos", "amo"));
         System.out.println(nroDigit(-4444));
         ArrayList<String> arr = new ArrayList<String>();
-        arr.addAll(permutations("abc"));
+        arr.addAll(permutations("abcd"));
         for(int i = 0; i<arr.size(); i++){
             System.out.println(arr.get(i));
         }
+        System.out.println(arr.size());
     }
 
     /*
@@ -288,25 +289,28 @@ public class Ex_modelagem {
      * 
      * 
      */
-    public static ArrayList<String> permutations(String s){
+    public static ArrayList<String> permutations(String s, ArrayList<String> arr){
         if(s.length() <= 1){
-            ArrayList<String> arr = new ArrayList<String>();
             arr.add(s);
             return arr;
         }
+        else if(arr.contains(s)){
+            return arr;
+        }
         else{
-            ArrayList<String> arr = new ArrayList<String>();
-            arr.addAll(permutations(s.substring(1)));
-            StringBuilder sb = new StringBuilder(s.substring(0, arr.get(arr.size()-1).length()) + s.substring(arr.get(arr.size()-1).length()));
+            StringBuilder sb = new StringBuilder(s);
             char t = sb.charAt(0);
-            arr.add(sb.toString());
             for(int i = 1; i<sb.length(); i++){
+                arr.add(sb.toString());
                 sb.setCharAt(i-1, sb.charAt(i));
                 sb.setCharAt(i, t);
                 t = sb.charAt(i);
-                arr.add(sb.toString());
             }
-            return arr;
+            return permutations(sb.toString(), arr);
         }
+    }
+
+    public static ArrayList<String> permutations(String s){
+        return permutations(s, new ArrayList<String>());
     }
 }
