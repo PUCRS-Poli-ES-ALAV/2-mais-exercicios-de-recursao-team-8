@@ -22,6 +22,11 @@ public class Ex_modelagem {
         System.out.println(findBiggest(lista));
         System.out.println(findSubStr("vamos", "amo"));
         System.out.println(nroDigit(-4444));
+        ArrayList<String> arr = new ArrayList<String>();
+        arr.addAll(permutations("abc"));
+        for(int i = 0; i<arr.size(); i++){
+            System.out.println(arr.get(i));
+        }
     }
 
     /*
@@ -271,5 +276,37 @@ public class Ex_modelagem {
         return 1;
         else
         return nroDigit(n/10) + 1;
+    }
+
+    /*
+     * Assinatura: ArrayList<String> permutations(String s)
+     * 
+     * Casos base:
+     * 
+     * se string estiver vazia ou tiver um caractere
+     * retorna arraylist com ela mesma
+     * 
+     * 
+     */
+    public static ArrayList<String> permutations(String s){
+        if(s.length() <= 1){
+            ArrayList<String> arr = new ArrayList<String>();
+            arr.add(s);
+            return arr;
+        }
+        else{
+            ArrayList<String> arr = new ArrayList<String>();
+            arr.addAll(permutations(s.substring(1)));
+            StringBuilder sb = new StringBuilder(s.substring(0, arr.get(arr.size()-1).length()) + s.substring(arr.get(arr.size()-1).length()));
+            char t = sb.charAt(0);
+            arr.add(sb.toString());
+            for(int i = 1; i<sb.length(); i++){
+                sb.setCharAt(i-1, sb.charAt(i));
+                sb.setCharAt(i, t);
+                t = sb.charAt(i);
+                arr.add(sb.toString());
+            }
+            return arr;
+        }
     }
 }
