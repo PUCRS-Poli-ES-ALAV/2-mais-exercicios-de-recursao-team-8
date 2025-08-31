@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Ex_modelagem {
     public static void main(String args[]) {
@@ -28,6 +29,8 @@ public class Ex_modelagem {
             System.out.println(arr.get(i));
         }
         System.out.println(arr.size());
+        char[] g = strToChar("abcdef");
+        System.out.println(g);
     }
 
     /*
@@ -298,19 +301,35 @@ public class Ex_modelagem {
             return arr;
         }
         else{
-            StringBuilder sb = new StringBuilder(s);
-            char t = sb.charAt(0);
-            for(int i = 1; i<sb.length(); i++){
-                arr.add(sb.toString());
-                sb.setCharAt(i-1, sb.charAt(i));
-                sb.setCharAt(i, t);
-                t = sb.charAt(i);
+            char[] sb = strToChar(s);
+            char t = sb[0];
+            for(int i = 1; i<sb.length; i++){
+                arr.add(charToStr(sb));
+                sb[i-1] = sb[i];
+                sb[i] = t;
+                t = sb[i];
             }
-            return permutations(sb.toString(), arr);
+            return permutations(charToStr(sb), arr);
         }
     }
 
     public static ArrayList<String> permutations(String s){
         return permutations(s, new ArrayList<String>());
+    }
+
+    public static char[] strToChar(String s){
+        char[] c = new char[s.length()];
+        for(int i = 0; i<s.length(); i++){
+            c[i] = s.charAt(i);
+        }
+        return c;
+    }
+
+    public static String charToStr(char[] c){
+        String s = "";
+        for(int i = 0; i<c.length; i++){
+            s = s + c[i];
+        }
+        return s;
     }
 }
