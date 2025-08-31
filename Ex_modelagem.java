@@ -29,8 +29,6 @@ public class Ex_modelagem {
             System.out.println(arr.get(i));
         }
         System.out.println(arr.size());
-        char[] g = strToChar("abcdef");
-        System.out.println(g);
     }
 
     /*
@@ -301,7 +299,7 @@ public class Ex_modelagem {
             return arr;
         }
         else{
-            char[] sb = strToChar(s);
+            char[] sb = s.toCharArray();
             char t = sb[0];
             for(int i = 1; i<sb.length; i++){
                 arr.add(charToStr(sb));
@@ -317,13 +315,6 @@ public class Ex_modelagem {
         return permutations(s, new ArrayList<String>());
     }
 
-    public static char[] strToChar(String s){
-        char[] c = new char[s.length()];
-        for(int i = 0; i<s.length(); i++){
-            c[i] = s.charAt(i);
-        }
-        return c;
-    }
 
     public static String charToStr(char[] c){
         String s = "";
